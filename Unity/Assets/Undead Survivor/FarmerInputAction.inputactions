@@ -1,15 +1,15 @@
 {
     "version": 1,
-    "name": "Action",
+    "name": "FarmerInputAction",
     "maps": [
         {
             "name": "Farmer",
-            "id": "39cb65a3-24b1-42b0-b2e1-6d3a1f4cbdc4",
+            "id": "527f0177-908b-4e8c-bb79-a0caa87f1654",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "6aa17ee1-e7b1-4a5c-afc1-0d825e26a9b0",
+                    "id": "18574b72-1fbb-4785-99d0-a09e0ec3cf95",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -19,10 +19,10 @@
             "bindings": [
                 {
                     "name": "2D Vector",
-                    "id": "cc60ad9b-2670-4958-881e-e3643bf7a207",
+                    "id": "e45abbfa-3c72-4f99-b7c7-6fd7aed12bb8",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
@@ -30,7 +30,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "4fb6ba5b-3475-4795-a851-f76959216d67",
+                    "id": "80b82e1d-0f67-404e-a529-40e9d6f86e6d",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -41,7 +41,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "cebf1155-5896-411a-a938-c48e330d932c",
+                    "id": "bdc4b505-750a-44d4-9f2c-d85140082d36",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -52,7 +52,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "38168123-9954-4708-ae46-0be6045e08ae",
+                    "id": "33528e71-6a9c-49cf-9763-e4d7df25e6b7",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -63,7 +63,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "fb03d4ce-90e7-4fd4-9da9-69bfee8b4298",
+                    "id": "4e02c1f7-a262-488d-99e2-f60506a8bdb4",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
