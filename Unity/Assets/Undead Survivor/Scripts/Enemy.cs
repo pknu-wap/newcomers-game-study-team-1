@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
     private Transform _playerTransform;
     private float speed = 4f;
 
+    private float _health = 20f;
+
     void Awake()
     {
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -19,5 +21,14 @@ public class Enemy : MonoBehaviour
 
         transform.Translate(Time.deltaTime * speed * length);
 
+    }
+
+    void OnTriggerStay2D(Collider2D other) {
+        if(other.CompareTag("Player"))
+            other.GetComponent<Farmer>().TakeDamage(1);
+    }
+
+    public void TakeDamage(float damage) {
+        _health -= damage;
     }
 }
