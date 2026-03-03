@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b7de92c66ce414d9d634d8b9cbcc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  _expChip0: {fileID: 5269566868723707593, guid: 16ed65c01828b454fa46910809cffea1, type: 3}
 --- !u!114 &1538180459203323042
 MonoBehaviour:
   m_ObjectHideFlags: 0

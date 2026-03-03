@@ -5,6 +5,7 @@ public class WeaponAttack : MonoBehaviour
     private float _damage = 5f;
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log(other);
         other.GetComponent<EnemyHealth>().TakeDamage(_damage);
     }
 }
