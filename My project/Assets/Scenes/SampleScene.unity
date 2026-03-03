@@ -1765,6 +1765,7 @@ GameObject:
   - component: {fileID: 1522351645}
   - component: {fileID: 1522351646}
   - component: {fileID: 1522351647}
+  - component: {fileID: 1522351648}
   m_Layer: 6
   m_Name: Farmer
   m_TagString: Player
@@ -1867,7 +1868,7 @@ Transform:
   m_GameObject: {fileID: 1522351639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.26, y: -0.04, z: 0}
+  m_LocalPosition: {x: -3.01, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1978,6 +1979,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmerLevel
   levelUpPanel: {fileID: 621973343}
+--- !u!114 &1522351648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522351639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63f1fe04aec2744bb08035ab9b5e4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyspawnField
+  _currntTime: 0
+  Enemy: {fileID: 2678311392484885086, guid: 420a430e2f968ad458168e2c67bce700, type: 3}
 --- !u!1001 &1527813256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1996,11 +2011,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3354456584620430984, guid: 420a430e2f968ad458168e2c67bce700, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.94
+      value: -8.92
       objectReference: {fileID: 0}
     - target: {fileID: 3354456584620430984, guid: 420a430e2f968ad458168e2c67bce700, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.49
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 3354456584620430984, guid: 420a430e2f968ad458168e2c67bce700, type: 3}
       propertyPath: m_LocalPosition.z
