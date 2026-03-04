@@ -12,7 +12,7 @@ public class FarmerLevel : MonoBehaviour
             _exp -= _maxExp;
             _level++;
             _maxExp = _level * 50;
-            Debug.Log(string.Format("레벨 업! {0}lv -> {1}lv", _level - 1, _level));
+            TimeController.StopTime();
         }
 
         Debug.Log(string.Format("경험치: {0}, 레벨: {1}", _exp, _level));
