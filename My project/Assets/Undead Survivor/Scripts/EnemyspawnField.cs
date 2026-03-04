@@ -22,20 +22,14 @@ public class EnemyspawnField : MonoBehaviour
         {
             randomNum = Random.Range(-6.0f, 6.0f);
             PositionX = _playerTransform.transform.position.x + randomNum;
+            PositionY = Mathf.Pow(36 - Mathf.Pow(randomNum, 2), 0.5f);
             if (Random.Range(0,2) == 1)
             {
-                PositionY = Mathf.Pow(36 - Mathf.Pow(randomNum, 2), 0.5f);
-                Instantiate(Enemy, new Vector3(PositionX, PositionY, 0), transform.rotation);        
-                _currntTime = 0;
-                Debug.Log("x: " + PositionX + "y: " + PositionY + ", " + _currntTime + "초 잔여");
+                PositionY = -PositionY;
             }
-                else
-            {
-                PositionY = -Mathf.Pow(36 - Mathf.Pow(randomNum, 2), 0.5f);
-                Instantiate(Enemy, new Vector3(PositionX, PositionY, 0), transform.rotation);        
-                _currntTime = 0;
-                Debug.Log("x: " + PositionX + "y: " + PositionY + ", " + _currntTime + "초 잔여");
-            }
+            Instantiate(Enemy, new Vector3(PositionX, PositionY, 0), transform.rotation);        
+            _currntTime = 0;
+            Debug.Log("x: " + PositionX + "y: " + PositionY + ", " + _currntTime + "초 잔여");
         }
         
     }

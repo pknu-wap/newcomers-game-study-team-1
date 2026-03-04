@@ -9,9 +9,13 @@ public class FarmerMovement : MonoBehaviour
     private void Update()
     {
         transform.Translate(Time.deltaTime * Speed * _moveDirection);
+    ///    if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
+    ///    {
+    ///        Debug.Log("FUCK");
+    ///    }
     }
 
-    private void OnMove(InputValue value)
+    public void OnMove(InputValue value)
     {
         _moveDirection = value.Get<Vector2>();
         _moveDirection.Normalize();

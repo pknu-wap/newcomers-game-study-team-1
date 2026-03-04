@@ -1766,6 +1766,9 @@ GameObject:
   - component: {fileID: 1522351646}
   - component: {fileID: 1522351647}
   - component: {fileID: 1522351648}
+  - component: {fileID: 1522351650}
+  - component: {fileID: 1522351649}
+  - component: {fileID: 1522351651}
   m_Layer: 6
   m_Name: Farmer
   m_TagString: Player
@@ -1993,6 +1996,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyspawnField
   _currntTime: 0
   Enemy: {fileID: 2678311392484885086, guid: 420a430e2f968ad458168e2c67bce700, type: 3}
+--- !u!114 &1522351649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522351639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
+  m_CategoryHash: 1.0429618e-14
+  m_labelHash: 2.948443e-14
+  m_SpriteKey: 0
+  m_SpriteHash: 392843537
+--- !u!114 &1522351650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522351639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrary
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: c54912d9d71f49146b82a15d9e744eca, type: 3}
+--- !u!114 &1522351651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522351639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d108d517163f39c48b37b536a027670b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmerSprite
 --- !u!1001 &1527813256
 PrefabInstance:
   m_ObjectHideFlags: 0
