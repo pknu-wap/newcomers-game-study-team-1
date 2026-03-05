@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 713793145}
   - component: {fileID: 713793149}
   m_Layer: 8
-  m_Name: Bullet 0
+  m_Name: WeaponShovel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,6 +1769,8 @@ GameObject:
   - component: {fileID: 1522351650}
   - component: {fileID: 1522351649}
   - component: {fileID: 1522351651}
+  - component: {fileID: 1522351652}
+  - component: {fileID: 1522351653}
   m_Layer: 6
   m_Name: Farmer
   m_TagString: Player
@@ -1852,7 +1854,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1413294825, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  m_Sprite: {fileID: 978012912, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1920,6 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c18bc86f481504fbef8e0d26a03437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmerMovement
+  _moveDirection: {x: 0, y: 0, z: 0}
 --- !u!70 &1522351645
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2008,10 +2011,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
-  m_CategoryHash: 1.0429618e-14
-  m_labelHash: 2.948443e-14
+  m_CategoryHash: 2.1529441e-16
+  m_labelHash: 1.3419644e-21
   m_SpriteKey: 0
-  m_SpriteHash: 392843537
+  m_SpriteHash: 237239949
 --- !u!114 &1522351650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,6 +2041,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d108d517163f39c48b37b536a027670b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmerSprite
+--- !u!95 &1522351652
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522351639}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5bda3865bf1fea34aa59aa6651ec8cfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1522351653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522351639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3002d3b1dcd48499c39b7138c6a1c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmerController
+  anim: {fileID: 1522351652}
 --- !u!1001 &1527813256
 PrefabInstance:
   m_ObjectHideFlags: 0

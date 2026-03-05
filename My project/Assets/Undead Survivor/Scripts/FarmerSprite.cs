@@ -5,14 +5,10 @@ public class FarmerSprite : MonoBehaviour
 {
     SpriteRenderer FarmerRenderer;
     private Vector3 FarmermoveDirection;
-    InputValue value;
 
     void Start()
     {
         FarmerRenderer = GetComponent<SpriteRenderer>();
-        ///GetComponent<FarmerMovement>().OnMove(value);
-        FarmermoveDirection = value.Get<Vector2>();
-        ///FarmermoveDirection = GetComponent<FarmerMovement>()._moveDirection;
     }
     /*
     private void Update()
@@ -28,15 +24,20 @@ public class FarmerSprite : MonoBehaviour
             FarmerRenderer.flipX = false;
         }
     }
-*/
+    */
+
+    private void OnMove(InputValue value)
+    {
+        FarmermoveDirection = value.Get<Vector2>();
+    }
     private void Update()
     {
         Debug.Log(FarmermoveDirection);
-        if (FarmermoveDirection.x > 0)
+        if (FarmermoveDirection.x < 0)
         {
             FarmerRenderer.flipX = true;
         }
-        else if (FarmermoveDirection.x < 0)
+        else if (FarmermoveDirection.x > 0)
         {
             FarmerRenderer.flipX = false;
         }
