@@ -4,15 +4,19 @@ using UnityEngine.InputSystem;
 public class FarmerSprite : MonoBehaviour
 {
     SpriteRenderer FarmerRenderer;
+    private Vector3 FarmermoveDirection;
+    InputValue value;
+
     void Start()
     {
         FarmerRenderer = GetComponent<SpriteRenderer>();
+        ///GetComponent<FarmerMovement>().OnMove(value);
+        FarmermoveDirection = value.Get<Vector2>();
+        ///FarmermoveDirection = GetComponent<FarmerMovement>()._moveDirection;
     }
-    void Update()
+    /*
+    private void Update()
     { 
-    ///철자하나틀려서찾느라1시간날렸네개멍청하다진짜Update는7글자가아니에요선생님
-    ///이거하나구현하려고이고생을해야하는거야?완전코딩개못하잖아...
-    ///무계획으로구현하고보니까방법이잘못된거같다는나쁜말은ㄴㄴㄴ
         if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
         {
             FarmerRenderer.flipX = true;
@@ -24,4 +28,20 @@ public class FarmerSprite : MonoBehaviour
             FarmerRenderer.flipX = false;
         }
     }
+*/
+    private void Update()
+    {
+        Debug.Log(FarmermoveDirection);
+        if (FarmermoveDirection.x > 0)
+        {
+            FarmerRenderer.flipX = true;
+        }
+        else if (FarmermoveDirection.x < 0)
+        {
+            FarmerRenderer.flipX = false;
+        }
+    } 
+
+
+
 }
