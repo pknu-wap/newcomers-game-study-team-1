@@ -7,7 +7,7 @@ public class FarmerHealth : MonoBehaviour
 
     public void TakeDamage(float damage) {
         _health -= damage;
-        Debug.Log(_health);
+        //Debug.Log(_health);
     }
 
     public void Heal(float hp) {

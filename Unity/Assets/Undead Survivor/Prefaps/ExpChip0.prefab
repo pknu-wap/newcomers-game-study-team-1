@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa78e1c8cc54004da6263e45cca7b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpChip
+  Exp: 50
 --- !u!58 &5379082435702457166
 CircleCollider2D:
   m_ObjectHideFlags: 0
