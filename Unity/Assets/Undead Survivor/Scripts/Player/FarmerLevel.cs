@@ -7,7 +7,6 @@ public class FarmerLevel : MonoBehaviour
     private uint _maxExp = 25;
 
     [SerializeField] private GameObject UI;
-    [SerializeField] private GameObject Sound;
 
     public void AddExp(float exp) {
         _exp += exp;
@@ -15,10 +14,8 @@ public class FarmerLevel : MonoBehaviour
             _exp -= _maxExp;
             _level++;
             _maxExp = _level * 50;
-            TimeController.StopTime();
 
-            UI.SetActive(true);
-            Sound.GetComponent<AudioSource>().Play();
+            UI.GetComponent<LevelupUI>().Open(_level);
         }
 
         Debug.Log(string.Format("경험치: {0}, 레벨: {1}", _exp, _level));
