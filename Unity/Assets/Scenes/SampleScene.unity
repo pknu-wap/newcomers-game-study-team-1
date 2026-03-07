@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf0fbb4ce20df7409a39bbe88a64ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
-  player: {fileID: 1714077755}
+  Player: {fileID: 1714077755}
 --- !u!1 &573272395
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,10 +916,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbb9c61282e31346bf89bbb0cf20e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileGenerator
-  GrassTile0: {fileID: 2093186594, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-  GrassTile1: {fileID: -2031541144, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-  GrassTile2: {fileID: 693853673, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-  StoneTile: {fileID: -133327340, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
+  Player: {fileID: 1714077755}
+  TilePrefabs:
+  - {fileID: 5567956115634646331, guid: 9c26024ccd671314d9bf331d8c937405, type: 3}
+  - {fileID: 1836032866316521617, guid: f9c0e385463112f4f831b416111e75b9, type: 3}
+  - {fileID: 2498317515222092296, guid: 3391807c91a0ff64bbfb716a0253ef1b, type: 3}
+  - {fileID: 7739783838623960075, guid: f230999cbee11414c8713d390d75b9d7, type: 3}
+  Width: 3
+  Height: 3
+  RenderDistance: 1
 --- !u!4 &1112238579
 Transform:
   m_ObjectHideFlags: 0
@@ -953,11 +958,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525966708238285983, guid: 3458c2b3dc22b2d4db16b64709acf1c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9750557
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5525966708238285983, guid: 3458c2b3dc22b2d4db16b64709acf1c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3607423
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5525966708238285983, guid: 3458c2b3dc22b2d4db16b64709acf1c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1598,7 +1603,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1737672109, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
