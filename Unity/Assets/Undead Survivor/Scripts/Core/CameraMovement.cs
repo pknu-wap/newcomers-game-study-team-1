@@ -3,16 +3,17 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     private Camera _camera;
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject Player;
     void Start()
     {
         _camera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void LateUpdate()
     {
-        Vector2 dist = player.transform.position - transform.position;
-        transform.position += (Vector3) dist;
+        transform.position = new Vector3(Player.transform.position.x, 
+            Player.transform.position.y, 
+            -10);
     }
 }
