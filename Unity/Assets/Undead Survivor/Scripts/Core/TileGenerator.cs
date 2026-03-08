@@ -25,7 +25,7 @@ public class TileGenerator: MonoBehaviour
         _spawnPos = Player.transform.position;
 
         for(uint i = 0; i < 35; i++) {
-            Debug.Log(chunkIndexToVector2(i));
+            
         }
     }
 
@@ -59,7 +59,45 @@ public class TileGenerator: MonoBehaviour
         return new Vector2(0, 0);
     }
 
-    private void vector2ToChunkIndex() {
+    private uint vector2ToChunkIndex(Vector2 pos) {
+        uint absX = (uint)Math.Abs(pos.x), absY = (uint)Math.Abs(pos.y);
+        uint max, sideLength, startIndex, offsetInLayer;
+        if(absX>absY) {
+            max = absX;
+            startIndex = (uint)Math.Pow(2 * max - 1,2);
+            sideLength = 2 * max + 1;
+            if(pos.x>=0) {
+                if(pos.y==sideLength/2) {
+                    offsetInLayer = 2 * max - 1;
+                } else {
+                    offsetInLayer = (uint)(2 * max + sideLength / 2 - 1 - (int)pos.y);
+                }
+            } else {
+                if(pos.y==-sideLength/2) {
+                    offsetInLayer = 6 * max - 1;
+                } else {
+                    offsetInLayer = (uint)(6 * max + sideLength / 2 - 1 + (int)pos.y);
+                }
+            }
+        } else {
+            max = absY;
+            startIndex = (uint)Math.Pow(2 * max - 1, 2);
+            sideLength = 2 * max + 1;
+            if(pos.y>=0) {
+                if(pos.x == -sideLength / 2) {
+                    offsetInLayer = 8 * max - 1;
+                } else {
+                    offsetInLayer = (uint)(sideLength/2 - 1 + (int)pos.x);
+                }
+            } else {
+                if(pos.x == sideLength / 2) {
+                    offsetInLayer = 4 * max - 1;
+                } else {
+                    offsetInLayer = (uint)(4 *max + sideLength/2-1 - (int)pos.x);
+                }
+            }
+        }
 
+        return startIndex + offsetInLayer;
     }
 }
