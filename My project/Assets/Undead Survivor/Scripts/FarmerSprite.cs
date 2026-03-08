@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class FarmerSprite : MonoBehaviour
 {
-    SpriteRenderer FarmerRenderer;
+    private SpriteRenderer FarmerRenderer;
     private Vector3 FarmermoveDirection;
 
     void Start()
