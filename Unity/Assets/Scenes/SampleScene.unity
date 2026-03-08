@@ -966,9 +966,9 @@ MonoBehaviour:
   - {fileID: 1836032866316521617, guid: f9c0e385463112f4f831b416111e75b9, type: 3}
   - {fileID: 2498317515222092296, guid: 3391807c91a0ff64bbfb716a0253ef1b, type: 3}
   - {fileID: 7739783838623960075, guid: f230999cbee11414c8713d390d75b9d7, type: 3}
-  Width: 3
-  Height: 3
-  RenderDistance: 1
+  Width: 5
+  Height: 5
+  RenderDistance: 3
 --- !u!4 &1112238579
 Transform:
   m_ObjectHideFlags: 0
@@ -998,7 +998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548591023388135392, guid: 3458c2b3dc22b2d4db16b64709acf1c4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5525966708238285983, guid: 3458c2b3dc22b2d4db16b64709acf1c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2072,6 +2072,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961684466}
   m_CullTransparentMesh: 1
+--- !u!1 &2139961503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2139961504}
+  - component: {fileID: 2139961505}
+  m_Layer: 0
+  m_Name: EnemyGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2139961504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139961503}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.58327, y: 0.03995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139961505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139961503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e171b2b66f42794ebb63245a2030297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyGenerator
+  Player: {fileID: 1714077755}
+  EnemyPrefab: {fileID: 4548591023388135392, guid: 3458c2b3dc22b2d4db16b64709acf1c4, type: 3}
+  SpawnDistance: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2085,3 +2132,4 @@ SceneRoots:
   - {fileID: 1601085223}
   - {fileID: 1112238579}
   - {fileID: 65354821}
+  - {fileID: 2139961504}

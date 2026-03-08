@@ -8,6 +8,11 @@ public class FarmerLevel : MonoBehaviour
 
     [SerializeField] private GameObject UI;
 
+    public uint Level
+    {
+        get { return _level; }
+    }
+
     public void AddExp(float exp) {
         _exp += exp;
         while(_exp >= _maxExp) {

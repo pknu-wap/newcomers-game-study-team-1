@@ -6,6 +6,6 @@ public class WeaponAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log(other);
-        other.GetComponent<EnemyHealth>().TakeDamage(_damage);
+        other.GetComponent<Enemy>().TakeDamage(_damage);
     }
 }
