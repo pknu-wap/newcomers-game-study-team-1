@@ -16,16 +16,21 @@ public class ChunkGenerator: MonoBehaviour
     private Dictionary<uint, Chunk> _chunks = new();
     private uint _currentChunkIndex = 0;
 
+    private Vector2 _previousChunkOffset = new Vector2(0,0);
+
     void Awake() {
         Chunk.SetTilePrefabs(TilePrefabs);
 
         if(Width % 2 == 0) Width++;
         if(Height % 2 == 0) Height++;
 
-        _spawnPos = Player.transform.position;
+        _spawnPos = new Vector2(0,0);
+        /* DON'T CHANGE THIS VALUE until refactoring the way to find the offset of the chunk
+         * where the player is.
+         */
 
-        uint spawnChunkCount = (uint)Math.Pow(2 * RenderDistance + 1, 2);
-        for(uint i = 0; i < spawnChunkCount; i++) {
+        uint count = (uint)Math.Pow(2 * RenderDistance + 1, 2);
+        for(uint i = 0; i < count; i++) {
             Chunk chunk = new(ChunkIndexToChunkPos(i), Width, Height);
             chunk.Generate();
             _chunks.Add(i, chunk);
@@ -34,21 +39,38 @@ public class ChunkGenerator: MonoBehaviour
 
     void LateUpdate() {
         // Find The index of the chunk where the player is in.
-        Debug.Log(PlayerPosToChunkIndex(Player.transform.position));
+        Vector2 currentChunkOffset = PlayerPosToChunkOffset(Player.transform.position);
+        if(currentChunkOffset!=_previousChunkOffset) {
+            Vector2 offset = new(0, 0);
+            uint chunkIndex = 0;
+            for(int i=(int)-RenderDistance; i<=RenderDistance; i++) {
+                offset.y = i;
+                for(int j=(int)-RenderDistance; j<=RenderDistance; j++) {
+                    offset.x = j;
+                    chunkIndex = ChunkOffsetToChunkIndex(offset + currentChunkOffset);
+                    if(!_chunks.ContainsKey(chunkIndex)) {
+                        Chunk chunk = new(ChunkIndexToChunkPos(chunkIndex), Width, Height);
+                        chunk.Generate();
+                        _chunks.Add(chunkIndex, chunk);
+                    }
+                }
+            }
+            _previousChunkOffset = currentChunkOffset;
+        }
     }
 
-    public uint PlayerPosToChunkIndex(Vector2 pos) {
+    public Vector2 PlayerPosToChunkOffset(Vector2 pos) {
         int xOffset = (int)Math.Round(pos.x / Width);
         int yOffset = (int)Math.Round(pos.y / Height);
-        return Vector2ToChunkIndex(new Vector2(xOffset, yOffset));
+        return new Vector2(xOffset, yOffset);
     }
 
     public Vector2 ChunkIndexToChunkPos(uint index) {
-        Vector2 offset = ChunkIndexToVector2(index);
+        Vector2 offset = ChunkIndexToChunkOffset(index);
         return _spawnPos + offset * new Vector2(Width, Height);
     }
 
-    public Vector2 ChunkIndexToVector2(uint index) {
+    public Vector2 ChunkIndexToChunkOffset(uint index) {
         uint layer;
         if(index == 0) return new Vector2(0, 0);
         else {
@@ -74,7 +96,7 @@ public class ChunkGenerator: MonoBehaviour
         return new Vector2(0, 0);
     }
 
-    public uint Vector2ToChunkIndex(Vector2 pos) {
+    public uint ChunkOffsetToChunkIndex(Vector2 pos) {
         if(pos.x==0 && pos.y==0) {
             return 0;
         }
