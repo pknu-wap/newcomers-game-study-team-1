@@ -24,8 +24,9 @@ public class TileGenerator: MonoBehaviour
 
         _spawnPos = Player.transform.position;
 
-        Chunk spawnChunk = new(_spawnPos, Width, Height);
-        spawnChunk.Generate();
+        for(uint i = 0; i < 35; i++) {
+            Debug.Log(chunkIndexToVector2(i));
+        }
     }
 
     void Update() {
@@ -46,14 +47,16 @@ public class TileGenerator: MonoBehaviour
 
         switch(side) {
             case 0:
-                return new Vector2(offsetInSide + sideLength/2 - 2*layer + 1,sideLength / 2);
+                return new Vector2((int)offsetInSide + sideLength/2 - 2*layer + 1,sideLength / 2);
             case 1:
-                return new Vector2(sideLength / 2, -offsetInSide + sideLength / 2);
+                return new Vector2(sideLength / 2, -(int)offsetInSide + sideLength / 2 - 1);
             case 2:
-                return new Vector2(-offsetInSide - sideLength/2 + 2*layer - 1 , -sideLength / 2);
+                return new Vector2(-(int)offsetInSide + sideLength/2 - 1, -(int)sideLength / 2);
             case 3:
-                return new Vector2(-sideLength / 2, offsetInSide - sideLength / 2);
+                return new Vector2(-sideLength / 2, (int)offsetInSide - sideLength / 2 + 1);
         }
+
+        return new Vector2(0, 0);
     }
 
     private void vector2ToChunkIndex() {
