@@ -36,8 +36,10 @@ public class Chunk
         for(int i=0; i<_height; i++) {
             offset.y = _height/2 - i;
             for(int j=0; j<_width; j++) {
+                int tileIndex = Random.Range(0, _tilePrefabs.Length);
+
                 offset.x = _width / 2 - j;
-                _tiles[i, j] = GameObject.Instantiate(_tilePrefabs[0], _origin + offset, Quaternion.identity);
+                _tiles[i, j] = GameObject.Instantiate(_tilePrefabs[tileIndex], _origin + offset, Quaternion.identity);
             }
         }
 

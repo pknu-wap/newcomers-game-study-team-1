@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-public class TileGenerator: MonoBehaviour
+public class ChunkGenerator: MonoBehaviour
 {
     public GameObject Player;
 
@@ -24,16 +24,31 @@ public class TileGenerator: MonoBehaviour
 
         _spawnPos = Player.transform.position;
 
-        for(uint i = 0; i < 35; i++) {
-            
+        uint spawnChunkCount = (uint)Math.Pow(2 * RenderDistance + 1, 2);
+        for(uint i = 0; i < spawnChunkCount; i++) {
+            Chunk chunk = new(ChunkIndexToChunkPos(i), Width, Height);
+            chunk.Generate();
+            _chunks.Add(i, chunk);
         }
     }
 
-    void Update() {
-
+    void LateUpdate() {
+        // Find The index of the chunk where the player is in.
+        Debug.Log(PlayerPosToChunkIndex(Player.transform.position));
     }
 
-    private Vector2 chunkIndexToVector2(uint index) {
+    public uint PlayerPosToChunkIndex(Vector2 pos) {
+        int xOffset = (int)Math.Round(pos.x / Width);
+        int yOffset = (int)Math.Round(pos.y / Height);
+        return Vector2ToChunkIndex(new Vector2(xOffset, yOffset));
+    }
+
+    public Vector2 ChunkIndexToChunkPos(uint index) {
+        Vector2 offset = ChunkIndexToVector2(index);
+        return _spawnPos + offset * new Vector2(Width, Height);
+    }
+
+    public Vector2 ChunkIndexToVector2(uint index) {
         uint layer;
         if(index == 0) return new Vector2(0, 0);
         else {
@@ -59,7 +74,11 @@ public class TileGenerator: MonoBehaviour
         return new Vector2(0, 0);
     }
 
-    private uint vector2ToChunkIndex(Vector2 pos) {
+    public uint Vector2ToChunkIndex(Vector2 pos) {
+        if(pos.x==0 && pos.y==0) {
+            return 0;
+        }
+
         uint absX = (uint)Math.Abs(pos.x), absY = (uint)Math.Abs(pos.y);
         uint max, sideLength, startIndex, offsetInLayer;
         if(absX>absY) {
