@@ -1513,7 +1513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSelector
   Weapons:
   - {fileID: 3527492126710648808, guid: 474c9d501cc906049b7249372687e3a8, type: 3}
-  WeaponIndex: 0
+  - {fileID: 1428757592951654799, guid: 4eae4b4f8b88973498cb35ce344c44d8, type: 3}
+  WeaponIndex: 1
 --- !u!1 &1813111139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1813111140
 Transform:
   m_ObjectHideFlags: 0
