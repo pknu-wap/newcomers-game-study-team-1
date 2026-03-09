@@ -31,7 +31,6 @@ public class Chunk
     }
 
     public void Generate(bool visible = true) {
-        Debug.Log(_width);
         Vector2 offset = new(0, 0);
         for(int i=0; i<_height; i++) {
             offset.y = _height/2 - i;

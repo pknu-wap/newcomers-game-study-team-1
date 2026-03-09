@@ -14,28 +14,19 @@ public class EnemyGenerator : MonoBehaviour
     {
         _farmerLevel = Player.GetComponent<FarmerLevel>();
 
-        SpawnEnemy();
+        StartCoroutine(SpawnEnemy());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Enemy.Spawned.Count==0) {
-            uint count = _farmerLevel.Level * 2;
-            
-            for(uint i=0; i<count; i++) {
-                SpawnEnemy();
-            }
+    IEnumerator<WaitForSeconds> SpawnEnemy() {
+        while(true) {
+            double theta = _random.NextDouble() * Math.PI *2;
+            double x = Math.Cos(theta) * SpawnDistance;
+            double y = Math.Sin(theta) * SpawnDistance;
+
+            Vector3 spawnPoint = new((float)x, (float)y);
+
+            Instantiate(EnemyPrefab, Player.transform.position+spawnPoint, Quaternion.identity);
+            yield return new WaitForSeconds(5 / (float)(_farmerLevel.Level+1));
         }
-    }
-
-    private void SpawnEnemy() {
-        double theta = _random.NextDouble() * Math.PI *2;
-        double x = Math.Cos(theta) * SpawnDistance;
-        double y = Math.Sin(theta) * SpawnDistance;
-
-        Vector3 spawnPoint = new((float)x, (float)y);
-
-        Instantiate(EnemyPrefab, Player.transform.position+spawnPoint, Quaternion.identity); 
     }
 }

@@ -12,6 +12,8 @@ public class Enemy: MonoBehaviour
     private float _speed = 4f;
     private float _damage = 1f;
 
+    private SpriteRenderer _sprite;
+
     private void OnTriggerStay2D(Collider2D other) {
         if(other.CompareTag("Player")) {
             other.GetComponent<FarmerHealth>().TakeDamage(_damage);
@@ -19,6 +21,7 @@ public class Enemy: MonoBehaviour
     }
 
     void Awake() {
+        _sprite = GetComponent<SpriteRenderer>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         Spawned.Add(this, gameObject);
     }
@@ -30,6 +33,11 @@ public class Enemy: MonoBehaviour
 
         transform.Translate(Time.deltaTime * _speed * length);
 
+        if(length.x<0) {
+            _sprite.flipX = true;
+        } else {
+            _sprite.flipX = false;
+        }
     }
 
     public void TakeDamage(float damage) {
