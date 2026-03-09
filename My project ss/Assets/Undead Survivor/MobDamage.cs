@@ -9,3 +9,4 @@ public class EnemyDamage : MonoBehaviour
         if (other.CompareTag("Player")) other.GetComponent<FarmerHp>().TakeDamage(Damage);
     }
 }
+

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FarmerHp : MonoBehaviour
 {
-    private const float MaxHp = 100f;
+    private const float MaxHp = 1000f;
     private float _currentHp = MaxHp;
 
     public void TakeDamage(float damage)
@@ -11,3 +11,4 @@ public class FarmerHp : MonoBehaviour
         Debug.Log("³óºÎ Ã¼·Â: " + _currentHp);
     }
 }
+
