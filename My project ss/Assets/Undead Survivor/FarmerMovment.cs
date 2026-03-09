@@ -17,3 +17,4 @@ public class FarmerMovement : MonoBehaviour
         _moveDirection.Normalize();
     }
 }
+
